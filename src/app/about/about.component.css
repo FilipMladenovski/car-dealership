@@ -1,0 +1,40 @@
+
+.about-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    text-align: center;
+  }
+  
+  .about-card mat-card-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+  }
+  
+  .about-card mat-card-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 600px) {
+    .about-card {
+      padding: 15px;
+    }
+  
+    .about-card mat-card-title {
+      font-size: 24px;
+    }
+  
+    .about-card mat-card-content {
+      font-size: 14px;
+    }
+  }
+  

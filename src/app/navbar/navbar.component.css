@@ -1,0 +1,34 @@
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background-color: #b3e5fc;
+    color: #01579b;
+    z-index: 2;
+  }
+  
+  .sidenav .mat-list-item {
+    color: #01579b;
+    padding: 16px 24px;
+  }
+  
+  .sidenav .mat-list-item:hover {
+    background-color: #81d4fa;
+  }
+  
+  .sidenav .mat-list-item .mat-icon {
+    margin-right: 16px;
+  }
+  
+  .sidenav .active-link {
+    background-color: #03a9f4;
+    color: #ffffff;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
