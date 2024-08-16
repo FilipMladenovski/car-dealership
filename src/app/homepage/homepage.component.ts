@@ -3,13 +3,14 @@ import { Car } from '../car.model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { CarCardComponent } from '../car-card/car-card.component';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
   standalone: true,
-  imports: [CommonModule, MatCardModule,MatIconModule]
+  imports: [CommonModule, MatCardModule, MatIconModule, CarCardComponent] // Import CarCardComponent here
 })
 export class HomepageComponent {
   cars: Car[] = [

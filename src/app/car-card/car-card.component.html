@@ -1,0 +1,26 @@
+<mat-card>
+    <img
+      mat-card-image
+      *ngIf="car.images.length > 0"
+      [src]="getImageUrl(car.images[0])"
+      [alt]="car.brand + ' ' + car.model"
+      height="auto"
+      width="100%"
+    />
+    <mat-card-content>
+      <h3>{{ car.brand }} {{ car.model }}</h3>
+      <p><span>Description:</span> {{ car.description }}</p>
+      <p><span>Price:</span> ${{ car.price }}</p>
+      <p><span>Type:</span> {{ car.type }}</p>
+      <p><span>Year:</span> {{ car.year }}</p>
+      <p><span>Color:</span> {{ car.color }}</p>
+      <p><span>Fuel Type:</span> {{ car.fuelType }}</p>
+      <p><span>Distance:</span> {{ car.distance }} km</p>
+      <p><span>Location:</span> {{ car.location.city }}, {{ car.location.country }}</p>
+      <p><span>Engine Power:</span> {{ car.enginePower }} kW</p>
+      <p><span>Doors:</span> {{ car.doors }}</p>
+      <p><span>Seats:</span> {{ car.seats }}</p>
+      <p><span>Transmission:</span> {{ car.transmission }}</p>
+    </mat-card-content>
+  </mat-card>
+  
