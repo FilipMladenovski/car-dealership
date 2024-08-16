@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { Car } from '../car.model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CarCardComponent } from '../car-card/car-card.component';
+import { SearchFilterComponent } from '../search-filter/search-filter.component';
+import { Car } from '../car.model';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, CarCardComponent] // Import CarCardComponent here
+  imports: [CommonModule, MatCardModule, MatIconModule, CarCardComponent, SearchFilterComponent]
 })
 export class HomepageComponent {
   cars: Car[] = [
@@ -241,10 +242,29 @@ export class HomepageComponent {
       doors: 4,
       seats: 5,
       transmission: 'Manual'
-    }    
+    }
   ];
+  filteredCars: Car[] = [...this.cars];
 
   getImageUrl(imagePath: string): string {
     return `/images/${imagePath}`;
+  }
+
+  onFiltersChanged(filters: any) {
+    this.filteredCars = this.cars.filter(car => this.applyFilters(car, filters));
+  }
+
+  applyFilters(car: Car, filters: any): boolean {
+    return (!filters.brand || car.brand.toLowerCase().includes(filters.brand.toLowerCase())) &&
+           (!filters.model || car.model.toLowerCase().includes(filters.model.toLowerCase())) &&
+           (!filters.year || car.year === filters.year) &&
+           (!filters.color || car.color.toLowerCase().includes(filters.color.toLowerCase())) &&
+           (!filters.fuelType || car.fuelType.toLowerCase().includes(filters.fuelType.toLowerCase())) &&
+           (!filters.price || car.price <= filters.price) &&
+           (!filters.distance || car.distance <= filters.distance) &&
+           (!filters.transmission || car.transmission.toLowerCase().includes(filters.transmission.toLowerCase())) &&
+           (!filters.type || car.type.toLowerCase().includes(filters.type.toLowerCase())) &&
+           (!filters.locationCity || car.location.city.toLowerCase().includes(filters.locationCity.toLowerCase())) &&
+           (!filters.locationCountry || car.location.country.toLowerCase().includes(filters.locationCountry.toLowerCase()));
   }
 }

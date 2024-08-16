@@ -1,4 +1,7 @@
-<h2>Available Cars for Sale</h2>
+<div>
+  <app-search-filter (filtersChanged)="onFiltersChanged($event)"></app-search-filter>
+</div>
+
 <div class="car-card-container">
-  <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+  <app-car-card *ngFor="let car of filteredCars" [car]="car"></app-car-card>
 </div>

@@ -1,0 +1,35 @@
+<div class="filter-controls">
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.brand" (ngModelChange)="onFilterChange()" placeholder="Brand">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.model" (ngModelChange)="onFilterChange()" placeholder="Model">
+  </div>
+  <div class="filter-group">
+    <input type="number" [(ngModel)]="filters.year" (ngModelChange)="onFilterChange()" placeholder="Year">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.color" (ngModelChange)="onFilterChange()" placeholder="Color">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.fuelType" (ngModelChange)="onFilterChange()" placeholder="Fuel Type">
+  </div>
+  <div class="filter-group">
+    <input type="number" [(ngModel)]="filters.price" (ngModelChange)="onFilterChange()" placeholder="Max Price">
+  </div>
+  <div class="filter-group">
+    <input type="number" [(ngModel)]="filters.distance" (ngModelChange)="onFilterChange()" placeholder="Max Distance">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.transmission" (ngModelChange)="onFilterChange()" placeholder="Transmission">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.type" (ngModelChange)="onFilterChange()" placeholder="Type">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.locationCity" (ngModelChange)="onFilterChange()" placeholder="Location City">
+  </div>
+  <div class="filter-group">
+    <input type="text" [(ngModel)]="filters.locationCountry" (ngModelChange)="onFilterChange()" placeholder="Location Country">
+  </div>
+</div>

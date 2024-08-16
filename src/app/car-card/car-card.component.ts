@@ -14,6 +14,6 @@ export class CarCardComponent {
   @Input() car: any;
 
   getImageUrl(imagePath: string): string {
-    return `/images/${imagePath}`; // Access images from public/images folder
+    return `/images/${imagePath}`;
   }
 }
