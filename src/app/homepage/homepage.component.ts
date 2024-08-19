@@ -243,7 +243,6 @@ export class HomepageComponent {
         seats: 5,
         transmission: 'Manual'
       }
-    // Your car data here...
   ];
   filteredCars: Car[] = [...this.cars];
 
