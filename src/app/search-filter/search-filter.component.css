@@ -1,37 +1,71 @@
 .filter-controls {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   margin: 20px 0;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
-.filter-group input {
+.filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-group input,
+.filter-group select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.filter-group input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
   outline: none;
 }
 
 .filter-group input::placeholder {
-  color: #aaa;
+  color: #888;
+}
+
+.filter-group select {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.filter-group select option {
+  padding: 10px;
+}
+
+.filter-group .filter-year,
+.filter-group .filter-type {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group .filter-year input,
+.filter-group .filter-type select {
+  background-color: #f9f9f9;
+}
+
+.filter-group .filter-type select {
+  font-size: 16px;
 }
 
 @media (max-width: 600px) {

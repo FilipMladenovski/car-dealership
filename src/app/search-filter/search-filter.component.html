@@ -6,13 +6,17 @@
     <input type="text" [(ngModel)]="filters.model" (ngModelChange)="onFilterChange()" placeholder="Model">
   </div>
   <div class="filter-group">
-    <input type="number" [(ngModel)]="filters.year" (ngModelChange)="onFilterChange()" placeholder="Year">
+    <mat-select [(ngModel)]="filters.year" (selectionChange)="onFilterChange()" placeholder="Year">
+      <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+    </mat-select>
   </div>
   <div class="filter-group">
     <input type="text" [(ngModel)]="filters.color" (ngModelChange)="onFilterChange()" placeholder="Color">
   </div>
   <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.fuelType" (ngModelChange)="onFilterChange()" placeholder="Fuel Type">
+    <mat-select [(ngModel)]="filters.fuelType" (selectionChange)="onFilterChange()" placeholder="Fuel Type">
+      <mat-option *ngFor="let fuel of fuelTypes" [value]="fuel">{{ fuel }}</mat-option>
+    </mat-select>
   </div>
   <div class="filter-group">
     <input type="number" [(ngModel)]="filters.price" (ngModelChange)="onFilterChange()" placeholder="Max Price">
@@ -24,7 +28,9 @@
     <input type="text" [(ngModel)]="filters.transmission" (ngModelChange)="onFilterChange()" placeholder="Transmission">
   </div>
   <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.type" (ngModelChange)="onFilterChange()" placeholder="Type">
+    <mat-select [(ngModel)]="filters.type" (selectionChange)="onFilterChange()" placeholder="Type">
+      <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+    </mat-select>
   </div>
   <div class="filter-group">
     <input type="text" [(ngModel)]="filters.locationCity" (ngModelChange)="onFilterChange()" placeholder="Location City">
