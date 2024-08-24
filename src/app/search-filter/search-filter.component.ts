@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './search-filter.component.html',
   styleUrls: ['./search-filter.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, MatSelectModule]
+  imports: [CommonModule, FormsModule, MatSelectModule, MatFormFieldModule, MatInputModule]
 })
 export class SearchFilterComponent {
   years: number[] = [];
@@ -16,17 +18,16 @@ export class SearchFilterComponent {
   types: string[] = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Convertible'];
 
   filters = {
+    searchTerm: '',
     brand: '',
     model: '',
-    year: null,
-    color: '',
-    fuelType: '',
-    price: null,
-    distance: null,
-    transmission: '',
     type: '',
-    locationCity: '',
-    locationCountry: ''
+    minYear: null,
+    maxDistance: null,
+    minEnginePower: null,
+    transmission: '',
+    fuelType: '',
+    isNew: null
   };
 
   @Output() filtersChanged = new EventEmitter<any>();

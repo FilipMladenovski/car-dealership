@@ -1,41 +1,63 @@
-<div class="filter-controls">
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.brand" (ngModelChange)="onFilterChange()" placeholder="Brand">
-  </div>
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.model" (ngModelChange)="onFilterChange()" placeholder="Model">
-  </div>
-  <div class="filter-group">
-    <mat-select [(ngModel)]="filters.year" (selectionChange)="onFilterChange()" placeholder="Year">
-      <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
-    </mat-select>
-  </div>
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.color" (ngModelChange)="onFilterChange()" placeholder="Color">
-  </div>
-  <div class="filter-group">
-    <mat-select [(ngModel)]="filters.fuelType" (selectionChange)="onFilterChange()" placeholder="Fuel Type">
-      <mat-option *ngFor="let fuel of fuelTypes" [value]="fuel">{{ fuel }}</mat-option>
-    </mat-select>
-  </div>
-  <div class="filter-group">
-    <input type="number" [(ngModel)]="filters.price" (ngModelChange)="onFilterChange()" placeholder="Max Price">
-  </div>
-  <div class="filter-group">
-    <input type="number" [(ngModel)]="filters.distance" (ngModelChange)="onFilterChange()" placeholder="Max Distance">
-  </div>
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.transmission" (ngModelChange)="onFilterChange()" placeholder="Transmission">
-  </div>
-  <div class="filter-group">
-    <mat-select [(ngModel)]="filters.type" (selectionChange)="onFilterChange()" placeholder="Type">
-      <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
-    </mat-select>
-  </div>
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.locationCity" (ngModelChange)="onFilterChange()" placeholder="Location City">
-  </div>
-  <div class="filter-group">
-    <input type="text" [(ngModel)]="filters.locationCountry" (ngModelChange)="onFilterChange()" placeholder="Location Country">
+<div class="full-width-container">
+  <div class="filter-controls">
+    
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Search term</mat-label>
+      <input matInput [(ngModel)]="filters.searchTerm" (ngModelChange)="onFilterChange()" placeholder="Search term">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Brand</mat-label>
+      <input matInput [(ngModel)]="filters.brand" (ngModelChange)="onFilterChange()" placeholder="Brand">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Model</mat-label>
+      <input matInput [(ngModel)]="filters.model" (ngModelChange)="onFilterChange()" placeholder="Model">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="filters.type" (selectionChange)="onFilterChange()" placeholder="Type">
+        <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Min Year</mat-label>
+      <mat-select [(ngModel)]="filters.minYear" (selectionChange)="onFilterChange()" placeholder="Min Year">
+        <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Max Distance</mat-label>
+      <input matInput type="number" [(ngModel)]="filters.maxDistance" (ngModelChange)="onFilterChange()" placeholder="Max Distance">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Min Engine Power</mat-label>
+      <input matInput type="number" [(ngModel)]="filters.minEnginePower" (ngModelChange)="onFilterChange()" placeholder="Min Engine Power">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Transmission</mat-label>
+      <input matInput [(ngModel)]="filters.transmission" (ngModelChange)="onFilterChange()" placeholder="Transmission">
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Fuel Type</mat-label>
+      <mat-select [(ngModel)]="filters.fuelType" (selectionChange)="onFilterChange()" placeholder="Fuel Type">
+        <mat-option *ngFor="let fuel of fuelTypes" [value]="fuel">{{ fuel }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-group" appearance="outline">
+      <mat-label>Condition</mat-label>
+      <mat-select [(ngModel)]="filters.isNew" (selectionChange)="onFilterChange()" placeholder="Condition">
+        <mat-option [value]="true">New</mat-option>
+        <mat-option [value]="false">Used</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </div>
