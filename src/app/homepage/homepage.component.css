@@ -1,14 +1,26 @@
 :host {
   display: block;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #2b2b2b;
+  color: #ffd700;
+  font-family: 'Impact', sans-serif;
 }
 
 .car-card-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 10px;
+  background-color: #1f1f1f;
+  border: 3px solid #ffd700;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1500px) {
+  .car-card-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -27,4 +39,67 @@
   .car-card-container {
     grid-template-columns: 1fr;
   }
+}
+
+.car-card-container .car-card {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border: 2px solid #444444;
+}
+
+.car-card-container .car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+  background-color: #1f1f1f;
+}
+
+.car-card-container .car-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ff4500;
+  transition: filter 0.3s ease;
+}
+
+.car-card-container .car-card img:hover {
+  filter: brightness(1.2);
+}
+
+.car-card-container .car-card .card-content {
+  padding: 15px;
+  color: #e0e0e0;
+}
+
+.car-card-container .car-card h3 {
+  font-size: 1.4em;
+  margin: 10px 0;
+  color: #ffd700;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+.car-card-container .car-card p {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
+.car-card-container .car-card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #ff4500;
+  color: #2b2b2b;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #ff4500;
+}
+
+.car-card-container .car-card .btn:hover {
+  background-color: #cc3700;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #ff4500;
 }

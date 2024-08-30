@@ -1,7 +1,22 @@
 <mat-toolbar class="toolbar" color="primary">
-    <mat-toolbar-row>
-      <span class="title">Car Dealership</span>
-      <span class="spacer"></span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  
+  <mat-toolbar-row>
+    <span class="title">
+      Car Dealership
+    </span>
+    <span class="spacer"></span>
+    <nav class="nav-links">
+      <a mat-button routerLink="/home" routerLinkActive="active-link">
+        <mat-icon>home</mat-icon>
+        Home
+      </a>
+      <a mat-button routerLink="/about" routerLinkActive="active-link">
+        <mat-icon>info</mat-icon>
+        About
+      </a>
+      <a mat-button routerLink="/contact" routerLinkActive="active-link">
+        <mat-icon>contact_mail</mat-icon>
+        Contact
+      </a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

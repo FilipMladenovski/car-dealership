@@ -1,18 +1,24 @@
 import { Component, OnInit, WritableSignal, signal } from '@angular/core';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CarService } from '../../services/car.service';
-import { Car } from '../car.model';
+import { CarService, Car } from '../../services/car.service';
 import { CarCardComponent } from '../car-card/car-card.component';
 import { SearchFilterComponent } from '../search-filter/search-filter.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
   standalone: true,
-  imports: [CommonModule, MatCardModule, CarCardComponent, SearchFilterComponent, MatPaginatorModule]
+  imports: [
+    CommonModule,
+    MatCardModule,
+    CarCardComponent,
+    SearchFilterComponent,
+    MatPaginatorModule,
+  ],
 })
 export class HomepageComponent implements OnInit {
   cars: WritableSignal<Car[]> = signal<Car[]>([]);
@@ -28,16 +34,17 @@ export class HomepageComponent implements OnInit {
   }
 
   loadCars() {
-    const params = { ...this.filters(), page: this.page(), pageSize: this.pageSize() };
-    this.carService.getCars(params).subscribe(response => {
-      if (response && response.payload) {
-        this.cars.set(response.payload);
-        this.totalCars.set(response.total || 0);
-      } else {
-        this.cars.set([]);
-        this.totalCars.set(0);
-      }
-    });
+    this.carService
+      .getCars(this.filters(), this.page(), this.pageSize())
+      .subscribe((response) => {
+        if (response && response.payload) {
+          this.cars.set(response.payload);
+          this.totalCars.set(response.total || 0);
+        } else {
+          this.cars.set([]);
+          this.totalCars.set(0);
+        }
+      });
   }
 
   onFiltersChanged(filters: any) {

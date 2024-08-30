@@ -1,26 +1,24 @@
-/* Container for the entire filter controls section */
 .filter-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   padding: 24px;
-  background: #f7f7f7; /* Light grey background color */
+  background: #f7f7f7;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
-  width: 100%; /* Ensure the form takes the full width of its parent container */
-  box-sizing: border-box; /* Include padding and border in element's width and height */
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Styling individual filter groups (fields) */
 .filter-group {
   flex: 1;
   min-width: 250px;
 }
 
-/* Mat-form-field appearance and styles */
+
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  border-color: #bbb; /* Slightly darker border color for better contrast */
+  border-color: #bbb;
   border-width: 1px;
   border-radius: 8px;
 }
@@ -40,7 +38,7 @@
 
 .mat-form-field-label {
   font-size: 1rem;
-  color: #555555; /* Darker grey for better readability */
+  color: #555555;
 }
 
 .mat-input-element, 
@@ -50,22 +48,19 @@
   border-radius: 8px;
 }
 
-/* Focused state */
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-  border-color: #3f51b5; /* Primary color on focus */
+  border-color: #3f51b5;
 }
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
-  color: #3f51b5; /* Primary color on focus */
+  color: #3f51b5;
 }
 
-/* Placeholder text */
 ::placeholder {
-  color: #888; /* Softer grey for placeholders */
+  color: #888;
   font-size: 0.95rem;
 }
 
-/* Transition effects */
 .mat-form-field {
   transition: all 0.3s ease;
 }
@@ -76,7 +71,6 @@
   border-color: #3f51b5;
 }
 
-/* Mat-option styles */
 .mat-option {
   font-size: 1rem;
   color: #333333;
@@ -88,13 +82,11 @@
   color: #ffffff;
 }
 
-/* Mat-select panel styles */
 .mat-select-panel {
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Icon styles */
 .mat-form-field-prefix .mat-icon {
   color: #3f51b5;
 }

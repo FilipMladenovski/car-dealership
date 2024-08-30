@@ -1,26 +1,95 @@
 .toolbar {
-    background: linear-gradient(to right, #03a9f4, #81d4fa);
-    color: whitesmoke;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #2b2b2b;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+  height: 70px;
+  border-bottom: 3px solid #ffd700;
+  transition: background-color 0.3s ease;
+}
+
+.title {
+  font-family: 'Impact', sans-serif;
+  font-size: 32px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-shadow: 2px 2px 8px #ffd700, 0 0 5px #ffd700;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.title:hover {
+  transform: scale(1.1);
+  color: #ffd700;
+  text-shadow: 2px 2px 12px #ffd700, 0 0 8px #ffd700;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease, border-bottom 0.3s ease, text-shadow 0.3s ease;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a mat-icon {
+  margin-right: 8px;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+.nav-links a.active-link {
+  border-bottom: 2px solid #ffd700;
+  color: #ffd700;
+  font-weight: 700;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
   }
-  
-  .mat-toolbar-row {
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 10px;
   }
-  
+
+  .nav-links a {
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-bottom: 2px;
+  }
+
   .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
+    font-size: 28px;
   }
-  
-  .spacer {
-    flex: 1;
-  }
+}
