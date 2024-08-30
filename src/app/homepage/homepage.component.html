@@ -1,18 +1,20 @@
-<div>
+<app-loader *ngIf="isLoading()" />
+
+<div *ngIf="!isLoading()">
   <app-search-filter (filtersChanged)="onFiltersChanged($event)"></app-search-filter>
-</div>
-
-<div class="car-card-container">
-  <app-car-card *ngFor="let car of cars()" [car]="car"></app-car-card>
-</div>
-
-<div class="pagination-controls">
-  <mat-paginator
-    [length]="totalCars()"
-    [pageSize]="pageSize()"
-    [pageIndex]="page()"
-    [pageSizeOptions]="[5, 10, 20, 50]"
-    (page)="onPageChange($event)"
-  >
-  </mat-paginator>
+  
+  <div class="car-card-container">
+    <app-car-card *ngFor="let car of cars()" [car]="car"></app-car-card>
+  </div>
+  
+  <div class="pagination-controls">
+    <mat-paginator
+      [length]="totalCars()"
+      [pageSize]="pageSize()"
+      [pageIndex]="page()"
+      [pageSizeOptions]="[5, 10, 20, 50]"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>
