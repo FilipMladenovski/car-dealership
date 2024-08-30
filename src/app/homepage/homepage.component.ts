@@ -2,10 +2,11 @@ import { Component, OnInit, WritableSignal, signal } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CarService, Car } from '../../services/car.service';
+import { CarService} from '../../services/car.service';
 import { CarCardComponent } from '../car-card/car-card.component';
 import { SearchFilterComponent } from '../search-filter/search-filter.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { Car } from 'app/car.model';
 
 @Component({
   selector: 'app-homepage',

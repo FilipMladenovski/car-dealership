@@ -1,0 +1,66 @@
+<mat-card *ngIf="car">
+  <img
+    mat-card-image
+    *ngIf="car.images && car.images.length > 0"
+    [src]="getImageUrl(car.images[0])"
+    [alt]="car.brand + ' ' + car.model"
+    height="auto"
+    width="100%"
+  />
+  <mat-card-content>
+    <h3>{{ car.brand }} {{ car.model }}</h3>
+    
+    <p>
+      <mat-icon>description</mat-icon>
+      <span>Description:</span> {{ car.description }}
+    </p>
+    <p>
+      <mat-icon>directions_car</mat-icon>
+      <span>Type:</span> {{ car.type }}
+    </p>
+    <p>
+      <mat-icon>calendar_today</mat-icon>
+      <span>Year:</span> {{ car.year }}
+    </p>
+    <p>
+      <mat-icon>palette</mat-icon>
+      <span>Color:</span> {{ car.color }}
+    </p>
+    <p>
+      <mat-icon>local_gas_station</mat-icon>
+      <span>Fuel Type:</span> {{ car.fuelType }}
+    </p>
+    <p>
+      <mat-icon>speed</mat-icon>
+      <span>Distance:</span> {{ car.distance }} km
+    </p>
+    <p>
+      <mat-icon>bolt</mat-icon>
+      <span>Engine Power:</span> {{ car.enginePower }} kW
+    </p>
+    <p>
+      <mat-icon>settings</mat-icon>
+      <span>Transmission:</span> {{ car.transmission }}
+    </p>
+    <p>
+      <mat-icon>new_releases</mat-icon>
+      <span>Condition:</span> {{ car.isNew ? 'New' : 'Used' }}
+    </p>
+    <p>
+      <mat-icon>attach_money</mat-icon>
+      <span>Price:</span> ${{ car.price }}
+    </p>
+    <p>
+      <mat-icon>place</mat-icon>
+      <span>Location:</span> {{ car.location.city }}, {{ car.location.country }}
+    </p>
+    <p>
+      <mat-icon>door_front</mat-icon>
+      <span>Doors:</span> {{ car.doors }}
+    </p>
+    <p>
+      <mat-icon>airline_seat_recline_normal</mat-icon>
+      <span>Seats:</span> {{ car.seats }}
+    </p>
+  </mat-card-content>
+</mat-card>

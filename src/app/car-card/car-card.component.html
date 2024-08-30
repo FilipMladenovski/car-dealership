@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="car-card" (click)="viewCarDetails()">
   <img
     mat-card-image
     *ngIf="car.images.length > 0"
@@ -22,32 +22,8 @@
       <span>Year:</span> {{ car.year }}
     </p>
     <p>
-      <mat-icon>palette</mat-icon>
-      <span>Color:</span> {{ car.color }}
-    </p>
-    <p>
       <mat-icon>local_gas_station</mat-icon>
       <span>Fuel Type:</span> {{ car.fuelType }}
-    </p>
-    <p>
-      <mat-icon>speed</mat-icon>
-      <span>Distance:</span> {{ car.distance }} km
-    </p>
-    <p>
-      <mat-icon>place</mat-icon>
-      <span>Location:</span> {{ car.location.city }}, {{ car.location.country }}
-    </p>
-    <p>
-      <mat-icon>bolt</mat-icon>
-      <span>Engine Power:</span> {{ car.enginePower }} kW
-    </p>
-    <p>
-      <mat-icon>door_front</mat-icon>
-      <span>Doors:</span> {{ car.doors }}
-    </p>
-    <p>
-      <mat-icon>airline_seat_recline_normal</mat-icon>
-      <span>Seats:</span> {{ car.seats }}
     </p>
     <p>
       <mat-icon>settings</mat-icon>
