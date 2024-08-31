@@ -1,11 +1,102 @@
-<div class="input-container">
-  <mat-form-field class="input">
+<div class="filters-container">
+  <mat-form-field>
+    <mat-label>Search Term</mat-label>
     <input
       matInput
-      type="search"
+      type="text"
       placeholder="Search..."
-      [(ngModel)]="searchTerm"
-      (input)="onInputChange($event)"
+      [(ngModel)]="filters.searchTerm"
+      (ngModelChange)="updateFilter('searchTerm', $event)"
     />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Brand</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Brand"
+      [(ngModel)]="filters.brand"
+      (ngModelChange)="updateFilter('brand', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Model"
+      [(ngModel)]="filters.model"
+      (ngModelChange)="updateFilter('model', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <mat-select
+      [(ngModel)]="filters.type"
+      (selectionChange)="updateSelectFilter('type', $event)"
+    >
+      <mat-option *ngFor="let type of ['Sedan', 'SUV', 'Coupe', 'Hatchback']" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Min Year</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Min Year"
+      [(ngModel)]="filters.minYear"
+      (ngModelChange)="updateFilter('minYear', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Max Distance (KM)</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Max Distance"
+      [(ngModel)]="filters.maxDistance"
+      (ngModelChange)="updateFilter('maxDistance', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Min Engine Power</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Min Engine Power"
+      [(ngModel)]="filters.minEnginePower"
+      (ngModelChange)="updateFilter('minEnginePower', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Transmission</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Transmission"
+      [(ngModel)]="filters.transmission"
+      (ngModelChange)="updateFilter('transmission', $event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Fuel Type</mat-label>
+    <mat-select
+      [(ngModel)]="filters.fuelType"
+      (selectionChange)="updateSelectFilter('fuelType', $event)"
+    >
+      <mat-option *ngFor="let fuel of ['Petrol', 'Diesel', 'Electric', 'Hybrid']" [value]="fuel">
+        {{ fuel }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 </div>

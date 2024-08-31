@@ -1,15 +1,10 @@
 import { Component, OnInit, WritableSignal, signal } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 import { CarService } from '../../services/car.service';
-import { CarCardComponent } from '../car-card/car-card.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { Car } from 'app/car.model';
-import { LoaderComponent } from '../loader/loader.component';
 import { SearchFilterComponent } from '../search-filter/search-filter.component';
-import { debounceTime } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { CarCardComponent } from "../car-card/car-card.component";
 
 @Component({
   selector: 'app-homepage',
@@ -18,30 +13,30 @@ import { Subject } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule,
-    CarCardComponent,
     SearchFilterComponent,
     MatPaginatorModule,
-    LoaderComponent,
-  ],
+    CarCardComponent
+],
 })
 export class HomepageComponent implements OnInit {
   cars: WritableSignal<Car[]> = signal<Car[]>([]);
   totalCars: WritableSignal<number> = signal<number>(0);
   page: WritableSignal<number> = signal<number>(0);
   pageSize: WritableSignal<number> = signal<number>(10);
-  searchTerm: WritableSignal<string> = signal<string>('');
-  filters: WritableSignal<any> = signal<any>({});
+  filters: WritableSignal<any> = signal<any>({
+    searchTerm: '',
+    brand: '',
+    model: '',
+    type: '',
+    minYear: null,
+    maxDistance: null,
+    minEnginePower: null,
+    transmission: '',
+    fuelType: '',
+  });
   isLoading: WritableSignal<boolean> = signal<boolean>(true);
 
-  private searchTermSubject = new Subject<string>();
-
-  constructor(private carService: CarService) {
-    this.searchTermSubject.pipe(debounceTime(300)).subscribe(term => {
-      this.searchTerm.set(term);
-      this.loadCars();
-    });
-  }
+  constructor(private carService: CarService) {}
 
   ngOnInit() {
     this.loadCars();
@@ -49,8 +44,7 @@ export class HomepageComponent implements OnInit {
 
   loadCars() {
     this.isLoading.set(true);
-    const filters = { searchTerm: this.searchTerm(), ...this.filters() };
-    this.carService.getCars(filters, this.page(), this.pageSize()).subscribe({
+    this.carService.getCars(this.filters(), this.page(), this.pageSize()).subscribe({
       next: (response) => {
         if (response && response.payload) {
           this.cars.set(response.payload);
@@ -70,8 +64,10 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  onSearchTermChanged(newTerm: string) {
-    this.searchTermSubject.next(newTerm);  // Emit the new search term with debounce
+  onFiltersChanged(updatedFilters: any) {
+    this.filters.set(updatedFilters);
+    this.page.set(0);
+    this.loadCars();
   }
 
   onPageChange(event: PageEvent) {

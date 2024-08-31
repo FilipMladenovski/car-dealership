@@ -1,0 +1,108 @@
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dddddd;
+    margin-bottom: 20px; 
+}
+
+.filter-group {
+    flex: 1 1 250px;
+    min-width: 250px;
+}
+
+mat-form-field {
+    flex: 1 1 250px;
+    min-width: 250px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+mat-form-field:hover {
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+.mat-form-field-flex {
+    border-radius: 6px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color: #cccccc;
+}
+
+.mat-input-element, .mat-select {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Impact', sans-serif;
+}
+
+mat-select {
+    width: 100%;
+}
+
+.mat-select-trigger {
+    color: #333333;
+}
+
+.mat-option {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Impact', sans-serif;
+}
+
+.mat-option:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.search-button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Impact', sans-serif;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .filters-container {
+        flex-direction: column;
+    }
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+}
