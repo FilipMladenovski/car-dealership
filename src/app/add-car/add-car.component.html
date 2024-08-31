@@ -1,0 +1,95 @@
+<mat-card class="add-car-form">
+  <h3>Add a New Car for Sale</h3>
+  <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Brand</mat-label>
+      <input matInput formControlName="brand" required placeholder="Enter brand">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Model</mat-label>
+      <input matInput formControlName="model" required placeholder="Enter model">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" required placeholder="Select type">
+        <mat-option value="Sedan">Sedan</mat-option>
+        <mat-option value="SUV">SUV</mat-option>
+        <mat-option value="Coupe">Coupe</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Year</mat-label>
+      <input matInput formControlName="year" type="number" required placeholder="Enter year">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Color</mat-label>
+      <input matInput formControlName="color" placeholder="Enter color">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Fuel Type</mat-label>
+      <mat-select formControlName="fuelType" required placeholder="Select fuel type">
+        <mat-option value="Petrol">Petrol</mat-option>
+        <mat-option value="Diesel">Diesel</mat-option>
+        <mat-option value="Electric">Electric</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Distance (km)</mat-label>
+      <input matInput formControlName="distance" type="number" required placeholder="Enter distance">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Engine Power (kW)</mat-label>
+      <input matInput formControlName="enginePower" type="number" required placeholder="Enter engine power">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Transmission</mat-label>
+      <mat-select formControlName="transmission" required placeholder="Select transmission">
+        <mat-option value="Manual">Manual</mat-option>
+        <mat-option value="Automatic">Automatic</mat-option>
+        <mat-option value="Semi-Automatic">Semi-Automatic</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Price ($)</mat-label>
+      <input matInput formControlName="price" type="number" required placeholder="Enter price">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Image URLs (comma-separated)</mat-label>
+      <input matInput formControlName="images" placeholder="Enter image URLs">
+    </mat-form-field>
+
+    <div formGroupName="location">
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" required placeholder="Enter city">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" required placeholder="Enter country">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Doors</mat-label>
+      <input matInput formControlName="doors" type="number" required placeholder="Enter number of doors">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Seats</mat-label>
+      <input matInput formControlName="seats" type="number" required placeholder="Enter number of seats">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Car</button>
+  </form>
+</mat-card>

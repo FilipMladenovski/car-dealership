@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Car } from '../app/car.model';
 
@@ -11,11 +11,7 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  getCars(
-    filters: any = {},
-    page: number = 0,
-    pageSize: number = 10
-  ): Observable<{ payload: Car[]; total: number }> {
+  getCars(filters: any = {}, page: number = 0, pageSize: number = 10): Observable<{ payload: Car[]; total: number }> {
     let params = new HttpParams();
     Object.keys(filters).forEach((key) => {
       if (filters[key]) {
@@ -25,12 +21,20 @@ export class CarService {
     params = params.set('page', page.toString());
     params = params.set('pageSize', pageSize.toString());
 
-    return this.http.get<{ payload: Car[]; total: number }>(this.apiUrl, {
-      params,
-    });
+    return this.http.get<{ payload: Car[]; total: number }>(this.apiUrl, { params });
   }
 
   getCarById(id: string): Observable<Car> {
     return this.http.get<Car>(`${this.apiUrl}/${id}`);
   }
+
+  addCar(newCar: Car): Observable<Car> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<Car>(this.apiUrl, JSON.stringify(newCar), { headers });
+  }
 }
+
+export { Car };
