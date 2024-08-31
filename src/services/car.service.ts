@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Car } from '../app/car.model';
+import { Car } from 'app/car.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,16 +25,11 @@ export class CarService {
   }
 
   getCarById(id: string): Observable<Car> {
-    return this.http.get<Car>(`${this.apiUrl}/${id}`);
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Car>(url);
   }
 
-  addCar(newCar: Car): Observable<Car> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    return this.http.post<Car>(this.apiUrl, JSON.stringify(newCar), { headers });
+  addCar(car: Car): Observable<Car> {
+    return this.http.post<Car>(this.apiUrl, car);
   }
 }
-
-export { Car };

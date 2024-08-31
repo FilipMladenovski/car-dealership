@@ -1,5 +1,5 @@
 export interface Car {
-  id: string;
+  id?: string;
   description: string;
   brand: string;
   model: string;
@@ -12,7 +12,7 @@ export interface Car {
   transmission: 'Manual' | 'Automatic' | 'Semi-Automatic';
   isNew: boolean;
   price: number;
-  images: string[];
+  images: string[] | string;
   location: {
     city: string;
     country: string;

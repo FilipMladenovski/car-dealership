@@ -2,6 +2,11 @@
   <h3>Add a New Car for Sale</h3>
   <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" required placeholder="Enter description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Brand</mat-label>
       <input matInput formControlName="brand" required placeholder="Enter brand">
     </mat-form-field>
@@ -10,13 +15,17 @@
       <mat-label>Model</mat-label>
       <input matInput formControlName="model" required placeholder="Enter model">
     </mat-form-field>
-
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Type</mat-label>
       <mat-select formControlName="type" required placeholder="Select type">
         <mat-option value="Sedan">Sedan</mat-option>
         <mat-option value="SUV">SUV</mat-option>
         <mat-option value="Coupe">Coupe</mat-option>
+        <mat-option value="Hatchback">Hatchback</mat-option>
+        <mat-option value="Convertible">Convertible</mat-option>
+        <mat-option value="Van">Van</mat-option>
+        <mat-option value="Crossover">Crossover</mat-option>
+        <mat-option value="Minivan">Minivan</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -36,6 +45,7 @@
         <mat-option value="Petrol">Petrol</mat-option>
         <mat-option value="Diesel">Diesel</mat-option>
         <mat-option value="Electric">Electric</mat-option>
+        <mat-option value="Hybrid">Hybrid</mat-option>
       </mat-select>
     </mat-form-field>
 
