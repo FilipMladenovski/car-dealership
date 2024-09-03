@@ -5,6 +5,7 @@ import { SearchFilterComponent } from '../search-filter/search-filter.component'
 import { CommonModule } from '@angular/common';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CarCardComponent } from "../car-card/car-card.component";
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +16,8 @@ import { CarCardComponent } from "../car-card/car-card.component";
     CommonModule,
     SearchFilterComponent,
     MatPaginatorModule,
-    CarCardComponent
+    CarCardComponent,
+    LoaderComponent
 ],
 })
 export class HomepageComponent implements OnInit {
@@ -53,14 +55,12 @@ export class HomepageComponent implements OnInit {
           this.cars.set([]);
           this.totalCars.set(0);
         }
+        this.isLoading.set(false);
       },
       error: (err) => {
         console.error('Failed to load cars:', err);
         this.isLoading.set(false);
       },
-      complete: () => {
-        this.isLoading.set(false);
-      }
     });
   }
 

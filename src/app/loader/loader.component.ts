@@ -1,13 +1,14 @@
-import { Component, input } from '@angular/core';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { Component, Input } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loader',
   standalone: true,
-  imports: [MatProgressSpinner],
+  imports: [MatProgressSpinnerModule, CommonModule],
   templateUrl: './loader.component.html',
-  styleUrl: './loader.component.css',
+  styleUrls: ['./loader.component.css'],
 })
 export class LoaderComponent {
-  isLoading = input<boolean>(false);
+  @Input() isLoading: boolean = false;
 }
